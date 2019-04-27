@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_203557) do
     t.string "name"
     t.string "username", null: false
     t.string "email", null: false
+    t.string "phone"
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false

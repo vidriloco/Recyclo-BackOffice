@@ -15,12 +15,14 @@ class Api::UsersController < Api::BaseController
     username = user_params.delete(:username)
     email = user_params.delete(:email)
     password = user_params.delete(:password)
+    phone = user_params.delete(:phone)
 
     Clearance.configuration.user_model.new.tap do |user|
       user.name = name
       user.username = username
       user.email = email
       user.password = password
+      user.phone = phone
     end
   end
 
