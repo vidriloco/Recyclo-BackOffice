@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Material.create(value: "aluminium-can")
+Material.create(value: "plastic-pet", enabled: false)
+Material.create(value: "paper-cardboard", enabled: false)
+Material.create(value: "paper-newspaper", enabled: false)
+

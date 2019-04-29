@@ -1,5 +1,12 @@
-es-MX: 
-  activerecord: 
+es-MX:
+  activerecord:
+    values:
+      material:
+        types:
+          aluminium-can: "Lata"
+          plastic-pet: "PET"
+          paper-cardboard: "Cartón"
+          paper-newspaper: "Periódico"
     attributes: 
       user: 
         email: Email
