@@ -13,6 +13,12 @@ es-MX:
         name: Nombre
         password: Contraseña
         username: "Nombre de usuario"
+      offer:
+        quantity: Cantidad
+        zone: Zona
+        user_id: Usuario
+        material_id: Tipo de material
+        units: Unidades
     errors: 
       messages: 
         record_invalid: "La validación falló: %{errors}"

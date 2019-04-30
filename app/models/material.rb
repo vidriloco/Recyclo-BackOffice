@@ -1,4 +1,6 @@
 class Material < ApplicationRecord
+  has_many :offers
+  
   validates :value, presence: true
   
   def humanized
