@@ -8,6 +8,6 @@ class Material < ApplicationRecord
   end
   
   def expose_custom_json
-    { value: self.value, enabled: self.enabled, humanized: self.humanized }
+    { value: self.value, enabled: self.enabled, humanized: self.humanized, image: self.image_url }
   end
 end

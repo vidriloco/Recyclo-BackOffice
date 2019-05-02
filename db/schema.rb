@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_232706) do
   create_table "materials", force: :cascade do |t|
     t.string "value", null: false
     t.boolean "enabled", default: true
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
