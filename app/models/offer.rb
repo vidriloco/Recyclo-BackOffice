@@ -1,8 +1,9 @@
 class Offer < ApplicationRecord
   belongs_to :material
   belongs_to :user
+  belongs_to :location
   
-  validates :quantity, :zone, :units, :material, presence: true
+  validates :user_id, :quantity, :units, :material, presence: true
   
   def self.states
     {

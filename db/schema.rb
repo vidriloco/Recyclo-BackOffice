@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_232706) do
+ActiveRecord::Schema.define(version: 2019_05_05_063034) do
+
+  create_table "locations", force: :cascade do |t|
+    t.text "place_identifier"
+    t.integer "user_id", null: false
+    t.float "lat", null: false
+    t.float "lng", null: false
+    t.text "address", null: false
+    t.string "zone", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "materials", force: :cascade do |t|
     t.string "value", null: false
@@ -21,8 +32,8 @@ ActiveRecord::Schema.define(version: 2019_04_29_232706) do
   end
 
   create_table "offers", force: :cascade do |t|
+    t.integer "location_id", null: false
     t.integer "quantity", null: false
-    t.string "zone", null: false
     t.integer "material_id", null: false
     t.string "units", null: false
     t.integer "user_id", null: false
