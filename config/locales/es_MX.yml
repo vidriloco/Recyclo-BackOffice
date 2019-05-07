@@ -7,6 +7,25 @@ es-MX:
           plastic-pet: "PET"
           paper-cardboard: "Cartón"
           paper-newspaper: "Periódico"
+      offers:
+        message:
+          default: "Gracias por tu reciclable! En breve te contactaremos por e-mail o por what's app."
+        status:
+          pending-review: "Esperando revisión"
+          reviewing: "En revisión"
+          coordinating-pickup-date: "Organizando la recolección"
+          awaiting_for_pickup: "Esperando recolección"
+          collected: "Recolectado"
+        units:
+          bags:
+            one: "bolsa"
+            many: "bolsas"
+          pieces:
+            one: "pieza"
+            many: "piezas"
+          kilos:
+            one: "kilo"
+            many: "kilos"
     attributes: 
       user: 
         email: Email

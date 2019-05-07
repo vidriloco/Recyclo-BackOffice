@@ -18,7 +18,11 @@ class Api::OffersController < Api::BaseController
     else
       render json: { error: offer.errors.full_messages.first }, status: 400
     end
-
+  end
+  
+  def index
+    offers = Offer.where(user_id: user_with_token.id).includes([:location, :material]).order('updated_at DESC')
+    render json: { offers: offers.map(&:expose_custom_json) }, status: 200
   end
   
   protected
