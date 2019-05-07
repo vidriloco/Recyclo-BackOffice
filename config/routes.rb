@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     get 'materials', to: 'materials#index'
     post 'offers', to: 'offers#create'
     get 'offers', to: 'offers#index'
+    post 'offers/:id', to: 'offers#delete'
   end
 end

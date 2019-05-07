@@ -21,11 +21,23 @@ class Api::OffersController < Api::BaseController
   end
   
   def index
-    offers = Offer.where(user_id: user_with_token.id).includes([:location, :material]).order('updated_at DESC')
+    offers = current_user_offers
+    render json: { offers: offers.map(&:expose_custom_json) }, status: 200
+  end
+  
+  def delete
+    offer = Offer.find(params[:id])
+    
+    offer.destroy
+    offers = current_user_offers
     render json: { offers: offers.map(&:expose_custom_json) }, status: 200
   end
   
   protected
+  
+  def current_user_offers
+    Offer.where(user_id: user_with_token.id).includes([:location, :material]).order('updated_at DESC')
+  end
   
   def params_for_location
     place = location_params.delete(:place)

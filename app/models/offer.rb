@@ -38,6 +38,7 @@ class Offer < ApplicationRecord
   
   def expose_custom_json
     { 
+      id: id,
       title: offer_title,
       message: message || I18n.t('activerecord.values.offers.message.default'),
       localizedStatus: localized_status,
