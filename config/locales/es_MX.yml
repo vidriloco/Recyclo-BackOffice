@@ -39,7 +39,9 @@ es-MX:
         material_id: Tipo de material
         units: Unidades
     errors: 
-      messages: 
+      messages:
+        username: "solo permite nombres de usuario con más de 3 caracteres y sin espacio entre ellos"
+        email: "solo permite correos electrónicos válidos"
         record_invalid: "La validación falló: %{errors}"
         restrict_dependent_destroy: 
           has_many: "El registro no puede ser eliminado pues existen %{record} dependientes"

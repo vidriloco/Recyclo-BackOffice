@@ -1,4 +1,7 @@
 class Api::UsersController < Api::BaseController
+  
+  before_action :is_authorized, only: [:show]
+  
   def create
     @user = user_from_params
     
@@ -10,20 +13,33 @@ class Api::UsersController < Api::BaseController
     end
   end
   
-  def user_from_params
-    name = user_params.delete(:name)
-    username = user_params.delete(:username)
-    email = user_params.delete(:email)
-    password = user_params.delete(:password)
-    phone = user_params.delete(:phone)
-
-    Clearance.configuration.user_model.new.tap do |user|
-      user.name = name
-      user.username = username
-      user.email = email
-      user.password = password
-      user.phone = phone
+  def show
+    user = user_with_token
+    render json: { user: user.expose_custom_json }, status: 200
+  end
+  
+  def update
+    user = user_with_token
+    if user.updated_attributes?(user_params)
+      render json: { token: user.remember_token }, status: 200
+    else
+      render json: { error: user.errors.full_messages.first }, status: 400
     end
+  end
+  
+  protected
+  def user_from_params
+    Clearance.configuration.user_model.new.tap do |user|
+      user.name = param_for(:name)
+      user.username = param_for(:username)
+      user.email = param_for(:email)
+      user.password = param_for(:password)
+      user.phone = param_for(:phone)
+    end
+  end
+  
+  def param_for(field)
+    user_params.delete(field)
   end
 
   def user_params
