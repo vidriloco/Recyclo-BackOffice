@@ -4,11 +4,15 @@ class User < ApplicationRecord
   has_many :offers
   has_many :locations
   
-  validates :username, length: { within: 4..12 }
-  validates :username, :email, :password, presence: true
-  validates :username, uniqueness: true
-  validates :password, length: { within: 6..20 }
   validates :avatar_url, :username, :email, presence: true
+  validates :username, :email, uniqueness: true
+  
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: I18n.t('activerecord.errors.messages.email') }
+  validates :username, format: { with: /\A?(\w){3,15}\z/, message: I18n.t('activerecord.errors.messages.username') }
+  
+  validates :password, length: { within: 6..20 }, unless: Proc.new { |a| a.password.blank? }
+  validates :password, presence: true, unless: Proc.new { |a| a.password.blank? }
+
   def expose_custom_json
     { 
       username: username,
