@@ -13,6 +13,10 @@ class User < ApplicationRecord
   validates :password, length: { within: 6..20 }, unless: Proc.new { |a| a.password.blank? }
   validates :password, presence: true, unless: Proc.new { |a| a.password.blank? }
 
+  before_validation do
+    self.avatar_url = Avatar.get_first_randomly  if avatar_url.blank?
+  end
+  
   def expose_custom_json
     { 
       username: username,
