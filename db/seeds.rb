@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Material.create(value: "aluminium-can", image_url: "https://media.giphy.com/media/dJ47NVciJCuTy7o5xX/giphy.gif")
-Material.create(value: "plastic-pet", enabled: false, image_url: "https://media.giphy.com/media/l41lVP5r0XtS03xYc/giphy.gif")
-Material.create(value: "paper-cardboard", enabled: false, image_url: "https://media.giphy.com/media/69ocantqVQ1QaTmmRi/giphy.gif")
+Material.create(value: "plastic-pet", enabled: false, image_url: "https://media.giphy.com/media/GcPhfqeGu48g0/giphy.gif")
+Material.create(value: "paper-cardboard", enabled: false, image_url: "https://media.giphy.com/media/zCXG6qPHRKrXa/giphy.gif")
 Material.create(value: "paper-newspaper", enabled: false, image_url: "https://media.giphy.com/media/3oriOd9e7E0hzfwgF2/giphy.gif")
 
