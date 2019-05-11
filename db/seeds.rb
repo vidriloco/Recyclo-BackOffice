@@ -10,3 +10,9 @@ Material.create(value: "plastic-pet", enabled: false, image_url: "https://media.
 Material.create(value: "paper-cardboard", enabled: false, image_url: "https://media.giphy.com/media/zCXG6qPHRKrXa/giphy.gif")
 Material.create(value: "paper-newspaper", enabled: false, image_url: "https://media.giphy.com/media/3oriOd9e7E0hzfwgF2/giphy.gif")
 
+Avatar.create(name: "Mario Bros", url: "https://media.giphy.com/media/12QMzVeF4QsqTC/giphy.gif")
+Avatar.create(name: "Black Gato", url: "https://media.giphy.com/media/GObRHYaUQWf3q/giphy.gif")
+Avatar.create(name: "Beyonce", url: "https://media.giphy.com/media/APPbIpIe0xrVe/giphy.gif")
+Avatar.create(name: "Captain Planet", url: "https://media.giphy.com/media/KhlVSyjsbx18A/giphy.gif")
+
+

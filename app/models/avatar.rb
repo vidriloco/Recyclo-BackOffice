@@ -1,4 +1,7 @@
 class Avatar < ApplicationRecord
+  
+  has_many :donations
+  
   def self.get_first_randomly
    ["https://media.giphy.com/media/GObRHYaUQWf3q/giphy.gif",
     "https://media.giphy.com/media/12QMzVeF4QsqTC/giphy.gif",

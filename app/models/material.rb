@@ -1,7 +1,15 @@
 class Material < ApplicationRecord
   has_many :offers
+  has_many :donations
   
   validates :value, presence: true
+  
+  module Types
+    CAN = "aluminium-can"
+    CARDBOARD = "paper-cardboard"
+    PLASTIC = "plastic-pet"
+    PAPER = "paper-newspaper"
+  end
   
   def localized_name
     I18n.t('activerecord.values.material.types')[self.value.to_sym]

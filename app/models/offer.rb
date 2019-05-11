@@ -1,4 +1,5 @@
 class Offer < ApplicationRecord
+  has_one    :donation
   belongs_to :material
   belongs_to :user
   belongs_to :location
@@ -15,12 +16,10 @@ class Offer < ApplicationRecord
     }
   end
   
-  def self.units
-    {
-      bags: "bags",
-      pieces: "pieces",
-      kilos: "kilos"
-    }
+  module Units
+    BAGS = "bags"
+    PIECES = "bags"
+    KILOS = "bags"
   end
   
   def localized_status
