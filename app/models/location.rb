@@ -17,7 +17,7 @@ class Location < ApplicationRecord
   end
   
   def localized_zone
-    self.zones[self.zone]
+    Location.zones[self.zone]
   end
   
   def self.all_fake
