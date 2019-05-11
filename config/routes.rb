@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     post 'offers/:id', to: 'offers#delete'
     
     get 'donations', to: 'donations#index'
+    get 'avatars', to: 'avatars#index'
   end
 end
