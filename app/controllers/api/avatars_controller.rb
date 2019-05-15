@@ -1,6 +1,6 @@
 class Api::AvatarsController < Api::BaseController
   
-  #before_action :is_authorized
+  before_action :is_authorized
   
   def index
     @avatars = Avatar.all
