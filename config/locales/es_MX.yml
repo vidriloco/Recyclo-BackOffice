@@ -7,15 +7,21 @@ es-MX:
           plastic-pet: "PET"
           paper-cardboard: "Cartón"
           paper-newspaper: "Periódico"
-      offers:
+      offer:
         message:
           default: "Gracias por tu reciclable! En breve te contactaremos por e-mail o por what's app."
         status:
-          pending-review: "Esperando revisión"
+          pending_review: "Esperando revisión"
           reviewing: "En revisión"
-          coordinating-pickup-date: "Organizando la recolección"
+          coordinating_pickup_date: "Organizando la recolección"
           awaiting_for_pickup: "Esperando recolección"
           collected: "Recolectado"
+        messages_for_status:
+          pending_review: "Hemos recibido tu publicación con los detalles de tus reciclables, no tardaremos en contactarte"
+          reviewing: "Estamos revisando tu publicación, en breve te contactaremos"
+          coordinating_pickup_date: "Por definir la fecha y lugar para recolectar tus reciclables"
+          awaiting_for_pickup: "Hemos acordado una fecha y lugar para la recolección, en breve pasaremos por el reciclable"
+          collected: "Gracias! Tu reciclable ya está en camino al centro de acopio"
         units:
           bags:
             one: "bolsa"
@@ -33,11 +39,21 @@ es-MX:
         password: Contraseña
         username: "Nombre de usuario"
       offer:
+        status: Estado
         quantity: Cantidad
         zone: Zona
         user_id: Usuario
         material_id: Tipo de material
         units: Unidades
+        location: Ubicación
+        message: Mensaje asociado al estado
+      donation:
+        is_fake: Es dummy?
+        fake_title: Título o nombre de usuario (dummy)
+        fake_subtitle: Subtitulo o detalles del reciclable (dummy)
+        fake_latitude: Latitud (dummy)
+        fake_longitude: Longitud (dummy)
+        fake_zone: Zona (dummy)
     errors: 
       messages:
         username: "solo permite nombres de usuario con más de 3 caracteres y sin espacio entre ellos"
@@ -47,7 +63,24 @@ es-MX:
           has_many: "El registro no puede ser eliminado pues existen %{record} dependientes"
           has_one: "El registro no puede ser eliminado pues existe un %{record} dependiente"
     models: 
-      user: Usuario
+      user:
+        one: Usuario
+        other: Usuarios
+      location:
+        one: Ubicación
+        other: Ubicaciones
+      offer:
+        one: Oferta
+        other: Ofertas
+      donation:
+        one: Donación
+        other: Donaciones
+      avatar:
+        one: Avatar
+        other: Avatares
+      material:
+        one: Material
+        other: Materiales
   date: 
     abbr_day_names: 
       - dom

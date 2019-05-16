@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :avatars
+      resources :donations
+      resources :locations
+      resources :materials
+      resources :offers
+
+      root to: "users#index"
+    end
   namespace :api do
     post 'users', to: 'users#create'
     get 'users', to: 'users#show'

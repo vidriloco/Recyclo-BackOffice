@@ -1,0 +1,86 @@
+---
+es-MX:
+  helpers:
+    label:
+      user:
+        offers: Ofertas
+        locations: Ubicaciones
+        created_at: Registrado el
+        updated_at: Actualizado el
+        name: Nombre
+        email: Correo electrónico
+        username: Nombre de usuario
+        phone: Celular (o Whatsapp)
+      offer:
+        localized_status: Estado
+        published_on_discover: Publicado en sección descubre
+        offer_title: Detalles de la oferta
+        user: Usuario
+        zone: Zona
+        status: Estado
+        message: Mensaje
+        created_at: Creado el
+        updated_at: Actualizado el
+        units: Unidades
+        quantity: Cantidad
+        location: Ubicación
+        donation: Publicación en sección descubre
+        material: Material
+      avatar:
+        donations: Donaciones
+        name: Nombre
+        created_at: Creado el
+        updated_at: Actualizado el
+      donation:
+        offer: Oferta
+        donation_type: Tipo de donación
+        fake_title: Título o nombre de usuario (dummy)
+        fake_subtitle: Subtitulo o detalles del reciclable (dummy)
+        fake_latitude: Latitud (dummy)
+        fake_longitude: Longitud (dummy)
+        fake_zone: Zona (dummy)
+        created_at: Creado el
+        updated_at: Actualizado el
+        location: Ubicación
+        title_in_discover_section: Título en la sección descubre
+        subtitle_in_discover_section: Subtítulo en la sección descubre
+      location:
+        coordinates: Coordenadas
+        user: Usuario
+        offers: Ofertas
+        place_identifier: Google Places ID
+        localized_zone: Zona
+        created_at: Creado el
+        updated_at: Actualizado el
+        lat: Latitud
+        lng: Longitud
+      material:
+        offers: Ofertas
+        donations: Donaciones
+        localized_name: Tipo de material
+  administrate:
+    actions:
+      confirm: ¿Estás seguro?
+      destroy: Destruir
+      edit: Editar
+      edit_resource: Editar %{name}
+      show_resource: Mostrar %{name}
+      new_resource: Nuevo %{name}
+      back: Volver
+    controller:
+      create:
+        success: "%{resource} fue creado exitosamente."
+      destroy:
+        success: "%{resource} fue destruido exitosamente."
+      update:
+        success: "%{resource} fue actualizado exitosamente."
+    fields:
+      has_many:
+        more: Mostrando %{count} de %{total_count}
+        none: Ninguno
+    form:
+      error: error
+      errors: "%{pluralized_errors} prohibited this %{resource_name} from being saved:"
+    search:
+      clear: Borrar búsqueda
+      label: Buscar %{resource}

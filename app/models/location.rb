@@ -16,6 +16,10 @@ class Location < ApplicationRecord
     { "roma-sur" => Zones::ROMA_SUR, "roma-norte" => Zones::ROMA_NORTE, "condesa" => Zones::CONDESA, "juarez" => Zones::JUAREZ, "cuauhtemoc" => Zones::CUAUHTEMOC }
   end
   
+  def coordinates
+    "#{lat}, #{lng}"
+  end
+  
   def localized_zone
     Location.zones[self.zone]
   end

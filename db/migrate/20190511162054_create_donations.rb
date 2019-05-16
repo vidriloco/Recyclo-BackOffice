@@ -2,10 +2,10 @@ class CreateDonations < ActiveRecord::Migration[5.2]
   def change
     create_table :donations do |t|
       t.integer   :offer_id
+      
+      t.boolean   :is_fake, default: true
       t.integer   :material_id
       t.integer   :location_id
-      
-      t.boolean   :is_fake
       t.string    :fake_title
       t.string    :fake_subtitle
       t.float     :fake_latitude

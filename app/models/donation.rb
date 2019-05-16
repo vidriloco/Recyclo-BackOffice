@@ -38,7 +38,19 @@ class Donation < ApplicationRecord
     material = Material.where(value: combination[:material]).first
     offer = Offer.new(quantity: combination[:quantity].to_a.shuffle.first, material: material, units: combination[:units])
     
-    return ["Donó #{offer.offer_title}", material]
+    return [offer.offer_title, material]
+  end
+  
+  def subtitle_in_discover_section
+    is_fake ? fake_subtitle : offer.offer_title
+  end
+  
+  def title_in_discover_section
+    is_fake ? fake_title : offer.user.name.split(' ').first
+  end
+   
+  def donation_type
+    is_fake ? "Dummy" : "Real completada"
   end
   
   def expose_selected_fields

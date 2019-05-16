@@ -6,7 +6,7 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.integer :material_id, null: false
       t.string  :units, null: false
       t.integer :user_id, null: false
-      t.string  :status, default: Offer.states[:pending_review]
+      t.string  :status, default: Offer.status_hash[:pending_review]
       t.text    :message
 
       t.timestamps
