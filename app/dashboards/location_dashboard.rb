@@ -8,7 +8,7 @@ class LocationDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    coordinates: Field::String,
+    coordinates: Field::String.with_options(searchable: false),
     offers: Field::HasMany,
     user: Field::BelongsTo,
     id: Field::Number,
@@ -17,7 +17,7 @@ class LocationDashboard < Administrate::BaseDashboard
     lng: Field::Number.with_options(decimals: 2),
     address: Field::Text,
     zone: Field::String,
-    localized_zone: Field::String,
+    localized_zone: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

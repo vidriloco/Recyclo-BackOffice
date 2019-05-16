@@ -8,7 +8,7 @@ class MaterialDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    localized_name: Field::String,
+    localized_name: Field::String.with_options(searchable: false),
     offers: Field::HasMany,
     donations: Field::HasMany,
     id: Field::Number,

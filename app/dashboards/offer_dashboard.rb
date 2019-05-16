@@ -8,11 +8,11 @@ class OfferDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    published_on_discover: Field::String,
+    published_on_discover: Field::String.with_options(searchable: false),
     material: Field::BelongsTo,
-    offer_title: Field::String,
-    localized_status: Field::String,
-    zone: Field::String,
+    offer_title: Field::String.with_options(searchable: false),
+    localized_status: Field::String.with_options(searchable: false),
+    zone: Field::String.with_options(searchable: false),
     donation: Field::HasOne,
     user: Field::BelongsTo,
     location: Field::BelongsTo,
