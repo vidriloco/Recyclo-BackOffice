@@ -46,7 +46,7 @@ class Donation < ApplicationRecord
   end
   
   def title_in_discover_section
-    is_fake ? fake_title : offer.user.name.split(' ').first
+    is_fake ? fake_title : offer_name
   end
    
   def donation_type
@@ -54,6 +54,32 @@ class Donation < ApplicationRecord
   end
   
   def expose_selected_fields
+    return expose_fake_fields if is_fake
+    expose_offer_fields
+  end
+  
+  protected
+  
+  def offer_name
+    offer.user.name.split(' ').first
+  end
+  
+  def expose_offer_fields
+    return {} if self.offer.nil?
+    
+    { 
+      title: offer_name,
+      subtitle: offer.offer_title,
+      latitude: offer.location.lat,
+      longitude: offer.location.lng,
+      material: offer.material.image_url,
+      avatar: offer.user.avatar_url,
+      zone: offer.location.zone,
+      date: updated_at
+    }
+  end
+  
+  def expose_fake_fields
     { 
       title: fake_title,
       subtitle: fake_subtitle,

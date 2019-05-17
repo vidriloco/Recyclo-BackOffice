@@ -5,7 +5,7 @@ class Api::DonationsController < Api::BaseController
   before_action :is_authorized
   
   def index
-    @donations = Donation.all
+    @donations = Donation.all.order('created_at DESC')
 
     # Fix this ugly hack and render this JSON properly
     render json: { donations: @donations.map { |donation| donation.expose_selected_fields.merge(date: distance_of_time_in_words(donation.updated_at, DateTime.now)) } }, status: 200

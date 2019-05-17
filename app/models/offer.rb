@@ -80,7 +80,7 @@ class Offer < ApplicationRecord
   def raise_donation_if_needed
     if self.status.eql?(Status::COLLECTED) && self.donation.blank?
       Donation.create(offer: self, is_fake: false)      
-    else
+    elsif !self.donation.nil?
       self.donation.destroy!
     end
     
@@ -90,7 +90,7 @@ class Offer < ApplicationRecord
     { 
       id: id,
       title: offer_title,
-      message: message || I18n.t('activerecord.values.offer.message.default'),
+      message: Offer.message_hash[self.status.to_sym] || I18n.t('activerecord.values.offer.message.default'),
       localizedStatus: localized_status,
       status: status,
       zone: zone
