@@ -55,6 +55,23 @@ class Offer < ApplicationRecord
     end
   end
   
+  def self.create_with_location(params_for_offer, params_for_location, user)
+    offer_params = self.extract_offer_params(params_for_offer).merge({ user_id: user.id })
+    location_params = self.extract_location_params(params_for_location).merge({ user_id: user.id })
+    
+    offer = Offer.new(offer_params)
+    location = Location.new(location_params)
+
+    ActiveRecord::Base.transaction do
+      if location.save!
+        offer.location_id = location.id
+        offer.save!
+      end
+    end
+    
+    [offer, location]
+  end
+  
   def zone
     location.localized_zone
   end
@@ -94,6 +111,37 @@ class Offer < ApplicationRecord
       localizedStatus: localized_status,
       status: status,
       zone: zone
+    }
+  end
+  
+  protected
+  
+  def self.extract_location_params(params)
+    place = params.delete(:place)
+    formatted_address = place.delete(:formatted_address)
+    location = place.delete(:geometry).delete(:location)
+    place_id = place.delete(:place_id)
+    
+    {
+      place_identifier: place_id,
+      lat: location.delete(:lat),
+      lng: location.delete(:lng),
+      address: formatted_address,
+      zone: params.delete(:zone)
+    }
+  end
+  
+  def self.extract_offer_params(params)
+    material_value = params.delete(:material)
+    quantity = params.delete(:quantity)
+    units = params.delete(:units)
+    
+    material = Material.where(value: material_value).first
+    
+    { 
+      quantity: quantity,
+      material_id: material.id,
+      units: units
     }
   end
 end
