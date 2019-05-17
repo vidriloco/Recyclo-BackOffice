@@ -8,6 +8,7 @@ class MaterialDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    enabled_humanized: Field::String.with_options(searchable: false),
     localized_name: Field::String.with_options(searchable: false),
     offers: Field::HasMany,
     donations: Field::HasMany,
@@ -26,6 +27,7 @@ class MaterialDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :enabled_humanized,
     :localized_name
   ].freeze
 
@@ -34,20 +36,16 @@ class MaterialDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :localized_name,
-    :enabled,
+    :enabled_humanized,
     :image_url,
     :created_at,
     :updated_at,
-    :offers,
-    :donations,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :offers,
-    :donations,
     :value,
     :enabled,
     :image_url,

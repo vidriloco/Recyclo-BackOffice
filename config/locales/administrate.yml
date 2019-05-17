@@ -58,6 +58,8 @@ es-MX:
         offers: Ofertas
         donations: Donaciones
         localized_name: Tipo de material
+        enabled: Habilitado
+        enabled_humanized: Habilitado
   administrate:
     actions:
       confirm: ¿Estás seguro?
