@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_162054) do
     t.integer "material_id", null: false
     t.string "units", null: false
     t.integer "user_id", null: false
-    t.string "status", default: "pending-review"
+    t.string "status", default: "pending_review"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
