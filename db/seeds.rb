@@ -15,4 +15,9 @@ Avatar.create(name: "Black Gato", url: "https://media.giphy.com/media/GObRHYaUQW
 Avatar.create(name: "Beyonce", url: "https://media.giphy.com/media/APPbIpIe0xrVe/giphy.gif")
 Avatar.create(name: "Captain Planet", url: "https://media.giphy.com/media/KhlVSyjsbx18A/giphy.gif")
 
+Donation.create_fake_donation_given_by("Luisa")
+Donation.create_fake_donation_given_by("Manuel")
+Donation.create_fake_donation_given_by("Francisco")
+Donation.create_fake_donation_given_by("Jonhy")
+
 

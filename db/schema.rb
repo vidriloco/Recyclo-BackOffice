@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2019_05_11_162054) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "offer_id"
+    t.boolean "is_fake", default: true
     t.integer "material_id"
     t.integer "location_id"
-    t.boolean "is_fake"
     t.string "fake_title"
     t.string "fake_subtitle"
     t.float "fake_latitude"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_162054) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["value"], name: "index_materials_on_value"
   end
 
   create_table "offers", force: :cascade do |t|

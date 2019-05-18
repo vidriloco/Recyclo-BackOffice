@@ -58,16 +58,7 @@ class DonationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :material,
-    :offer,
-    :avatar,
-    :location_id,
-    :is_fake,
-    :fake_title,
-    :fake_subtitle,
-    :fake_latitude,
-    :fake_longitude,
-    :fake_zone,
+    :fake_title
   ].freeze
 
   # Overwrite this method to customize how donations are displayed
