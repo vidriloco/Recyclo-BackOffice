@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :password, presence: true, unless: Proc.new { |a| a.password.blank? }
 
   before_validation do
-    self.avatar_url = Avatar.all.shuffle.first  if avatar_url.blank?
+    self.avatar_url = Avatar.all.shuffle.first.url  if avatar_url.blank?
   end
   
   def expose_custom_json
