@@ -5,7 +5,7 @@ class Api::BaseController < ApplicationController
 
   def is_authorized
     if user_with_token.nil?
-      render json: { error: "Parece ser que no estás logeado :/" }, status: 400
+      render json: { error: "Parece ser que no estás logeado :/", reason: "not-authenticated" }, status: 400
     end
   end
 
