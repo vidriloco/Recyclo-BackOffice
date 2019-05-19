@@ -9,7 +9,7 @@ class Location < ApplicationRecord
     ROMA_NORTE = "Roma Norte"
     CONDESA = "Hipódromo Condesa"
     JUAREZ = "Juárez"
-    CUAUHTEMOC = "Cuauhtemoc"
+    CUAUHTEMOC = "Colonia Cuauhtémoc"
   end
   
   def self.zones
