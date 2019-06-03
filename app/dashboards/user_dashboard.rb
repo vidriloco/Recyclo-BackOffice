@@ -17,10 +17,13 @@ class UserDashboard < Administrate::BaseDashboard
     username: Field::String,
     email: Field::String,
     phone: Field::String,
+    campaign_code: Field::String,
+    via_campaign: Field::Boolean,
     encrypted_password: Field::String,
     confirmation_token: Field::String,
     remember_token: Field::String,
     avatar_url: Field::String,
+    campaign_details: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,9 +33,12 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :email,
+    :username,
     :offers,
     :locations,
     :created_at,
+    :campaign_details
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -47,6 +53,7 @@ class UserDashboard < Administrate::BaseDashboard
     :username,
     :email,
     :phone,
+    :campaign_details,
     :encrypted_password,
     :confirmation_token,
     :remember_token,

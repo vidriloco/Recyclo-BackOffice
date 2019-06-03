@@ -11,6 +11,9 @@ es-MX:
         email: Correo electrónico
         username: Nombre de usuario
         phone: Celular (o Whatsapp)
+        campaign_code: Código de la campaña
+        via_campaign: Via campaña
+        campaign_details: Campaña
       offer:
         localized_status: Estado
         published_on_discover: Publicado en sección descubre

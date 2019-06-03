@@ -17,6 +17,11 @@ class User < ApplicationRecord
     self.avatar_url = Avatar.all.shuffle.first.url  if avatar_url.blank?
   end
   
+  def campaign_details
+    return "No disponible" unless via_campaign
+    campaign_code
+  end
+  
   def expose_custom_json
     { 
       username: username,

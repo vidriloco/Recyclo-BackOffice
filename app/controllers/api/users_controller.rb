@@ -30,19 +30,29 @@ class Api::UsersController < Api::BaseController
   protected
   def user_from_params
     Clearance.configuration.user_model.new.tap do |user|
-      user.name = param_for(:name)
-      user.username = param_for(:username)
-      user.email = param_for(:email)
-      user.password = param_for(:password)
-      user.phone = param_for(:phone)
+      user.name = user_param_for(:name)
+      user.username = user_param_for(:username)
+      user.email = user_param_for(:email)
+      user.password = user_param_for(:password)
+      user.phone = user_param_for(:phone)
+      user.campaign_code = campaign_param_for(:code)
+      user.via_campaign = campaign_param_for(:enabled)
     end
   end
   
-  def param_for(field)
+  def user_param_for(field)
     user_params.delete(field)
   end
 
   def user_params
     params[Clearance.configuration.user_parameter] || Hash.new
+  end
+  
+  def campaign_param_for(field)
+    campaign_params.delete(field)
+  end
+  
+  def campaign_params
+    params["campaign"] || Hash.new
   end
 end
