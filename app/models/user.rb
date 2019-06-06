@@ -7,8 +7,8 @@ class User < ApplicationRecord
   validates :avatar_url, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: I18n.t('activerecord.errors.messages.email') }
-  validates :username, format: { with: /\A(\w){3,15}\z/, message: I18n.t('activerecord.errors.messages.username') }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: :bad_email }
+  validates :username, format: { with: /\A(\w){3,15}\z/, message: :bad_username }
   
   validates :password, length: { within: 6..20 }, unless: Proc.new { |a| a.password.blank? }
   validates :password, presence: true, unless: Proc.new { |a| a.password.blank? }
